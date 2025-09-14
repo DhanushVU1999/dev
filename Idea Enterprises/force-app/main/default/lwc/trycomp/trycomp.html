@@ -1,0 +1,42 @@
+<template>
+    <lightning-button label="alert" onclick={handleClick} class="styl"></lightning-button>
+
+    <h5 class="slds-m-top_medium">Indian Chatbot</h5>
+
+    <div><h2>{cases}</h2></div>
+
+    <div class="txtbox-button">
+        <input type="text" id="text-input-id-1" placeholder="Type Here" required class="slds-input txtbox" onkeyup={handleInputChange} />
+        <lightning-button-icon
+            icon-name="utility:send"
+            variant="brand"
+            alternative-text="Send"
+            title="Send"
+            onclick={handleparamSend}
+            class="send-button"
+        ></lightning-button-icon>
+    </div>
+
+    <template if:true={formattedRecords}>
+        <template if:true={formattedRecords.length}>
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                <thead>
+                    <tr>
+                        <template for:each={CaseFields} for:item="field">
+                            <th key={field}>{field}</th>
+                        </template>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={formattedRecords} for:item="row">
+                        <tr key={row.key}>
+                            <template for:each={row.values} for:item="value">
+                                <td key={value}>{value}</td>
+                            </template>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </template>
+    </template>
+</template>

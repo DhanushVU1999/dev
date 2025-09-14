@@ -1,0 +1,40 @@
+<template>
+    <div class="button-input">
+        <div class="slds-m-bottom_small slds-m-top_medium slds-text-heading_medium">FORM</div>
+        <div class="input-container">
+            <div style="font-weight: bold; font-size:larger">Account Name</div>
+            <input class="accNam" type="text" placeholder="Type the name"></input>
+        </div>
+        <div class="input-container">
+            <div style="font-weight: bold; font-size:larger">Industry Name</div>
+            <input id="accIndus" type="text" placeholder="Type the industry"></input>
+        </div>
+        <div class="buttn">
+            <button class="slds-button" title="Enter" onclick={handlecallback}>Preview Account to ADD</button>
+        </div>
+
+        <template lwc:if = {arrbool}>
+            <div class="slds-m-top_large slds-text-heading_medium">ACCOUNTS TO BE CREATED - Count of Inserted Accounts is {count}</div>
+            <div class="fruit-item slds-m-top_small">
+                <template for:each={arr} for:item="acc">
+                    <div class="slds-m-bottom_small" key={acc}>{acc.accName} - {acc.accIndustry} <span class="slds-m-right_large"></span>->
+                        <template lwc:if = {acc.bool3}>
+                            <lightning-button-icon class="slds-m-left_medium" icon-name="utility:add" data-var1={acc.accName} data-var2={acc.accIndustry} onclick = {handleclick}></lightning-button-icon>
+                        </template>
+                        <template lwc:if = {acc.locallink}>
+                            <a class="slds-m-left_medium" href={acc.locallink} target="_blank">Click Here</a>
+                        </template> 
+                    </div>
+                </template>
+            </div>
+        </template>
+        
+        
+        <template lwc:if = {bool1}>
+            <c-secondcomp-child class="fetch-count" child-arr={arr} bool-val = {bool2} oncountevent = {handlechilddetail}></c-secondcomp-child>
+        </template>
+        
+       
+    </div>
+    
+</template>
