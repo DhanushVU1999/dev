@@ -1,0 +1,38 @@
+.container {
+    background-color: lightblue;
+    padding: 16px;
+    max-height: 480px;
+    overflow-y: scroll;
+    display: block;
+}
+ input {
+    width : 50%;
+   
+} 
+.button-input{
+    margin-left: 1rem;
+}
+ button{
+    padding: 0 2rem 0 2rem;
+} 
+.buttn{
+    margin-top: 10px;
+    /* margin-left: 1rem;
+    padding: 10px; 
+    background-color: red;  */
+} 
+
+.fruit-item{
+    /* position: absolute; 
+    right: 0; */
+    margin:1rem 0 0 0;
+}
+.time {
+    font-size: 4rem;
+    font-weight: 600;
+} 
+
+.greeting {
+    font-size: 2rem;
+    font-weight: 400;
+}
